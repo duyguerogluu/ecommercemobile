@@ -1,3 +1,4 @@
+import 'package:ecommercemobile/riverpod/riverpod_management.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,21 +8,12 @@ class BottomNavBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var watch = ref.watch(bottomNavBarRiverpod);
+    var read = ref.read(bottomNavBarRiverpod);
     return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.home),
-          label: "Anasayfa",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.heart),
-          label: "Favoriler",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.bag),
-          label: "Sepetim",
-        ),
-      ],
+      items: read.items,
+      currentIndex: watch.currentIndex,
+      onTap: (index) => read.setCurrentIndex(index),
     );
   }
 }

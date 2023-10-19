@@ -1,4 +1,5 @@
 import 'package:ecommercemobile/components/bottom_nav_bar.dart';
+import 'package:ecommercemobile/riverpod/riverpod_management.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,10 +18,10 @@ class _BaseScaffoldState extends ConsumerState<BaseScaffold> {
 
   @override
   Widget build(BuildContext context) {
+    var watch = ref.watch(bottomNavBarRiverpod);
     return Scaffold(
-        bottomNavigationBar: BottomNavBar(),
-        body: Center(
-          child: Text("Text"),
-        ));
+      bottomNavigationBar: BottomNavBar(),
+      body: watch.body(),
+    );
   }
 }
