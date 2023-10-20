@@ -27,6 +27,19 @@ class BottomNavBarRiverpod extends ChangeNotifier {
     notifyListeners();
   }
 
+  String appbarTitle() {
+    switch (currentIndex) {
+      case 0:
+        return "Anasayfa";
+      case 1:
+        return "Favoriler";
+      case 2:
+        return "Sepetim";
+      default:
+        return "Anasayfa";
+    }
+  }
+
   Widget body() {
     switch (currentIndex) {
       case 0:

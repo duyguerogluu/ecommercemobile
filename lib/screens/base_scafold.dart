@@ -21,6 +21,13 @@ class _BaseScaffoldState extends ConsumerState<BaseScaffold> {
     var watch = ref.watch(bottomNavBarRiverpod);
     return Scaffold(
       bottomNavigationBar: BottomNavBar(),
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            watch.appbarTitle(),
+          ),
+        ),
+      ),
       body: watch.body(),
     );
   }
