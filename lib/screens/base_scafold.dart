@@ -13,6 +13,7 @@ class BaseScaffold extends ConsumerStatefulWidget {
 class _BaseScaffoldState extends ConsumerState<BaseScaffold> {
   @override
   void initState() {
+    ref.read(productRiverpod);
     super.initState();
   }
 
